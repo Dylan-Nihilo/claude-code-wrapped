@@ -1,0 +1,52 @@
+{
+  "name": "claude-code-wrapped",
+  "version": "1.0.0",
+  "description": "Generate your Claude Code year-in-review wrapped report",
+  "main": "dist/index.js",
+  "bin": {
+    "claude-code-wrapped": "dist/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "wrapped",
+    "statistics",
+    "cli",
+    "tui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "boxen": "^8.0.1",
+    "ora": "^8.1.1",
+    "open": "^10.1.0",
+    "puppeteer": "^23.11.1",
+    "gradient-string": "^3.0.0",
+    "figlet": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/figlet": "^1.7.0",
+    "@types/gradient-string": "^1.1.6",
+    "typescript": "^5.7.2",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ]
+}
