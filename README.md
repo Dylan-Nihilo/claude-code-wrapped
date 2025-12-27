@@ -1,57 +1,72 @@
 # Claude Code Wrapped 2025
 
-Generate your Claude Code year-in-review wrapped report - similar to Spotify Wrapped!
+```
+╔═╗╦  ╔═╗╦ ╦╔╦╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗  ╦ ╦╦═╗╔═╗╔═╗╔═╗╔═╗╔╦╗
+║  ║  ╠═╣║ ║ ║║║╣   ║  ║ ║ ║║║╣   ║║║╠╦╝╠═╣╠═╝╠═╝║╣  ║║
+╚═╝╩═╝╩ ╩╚═╝═╩╝╚═╝  ╚═╝╚═╝═╩╝╚═╝  ╚╩╝╩╚═╩ ╩╩  ╩  ╚═╝═╩╝
+```
 
-生成你的 Claude Code 年度回顾报告 - 类似 Spotify Wrapped！
+> Your year with Claude Code, beautifully visualized.
 
-## Usage / 使用方法
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
+
+## Preview
+
+Generate a beautiful dashboard showing your Claude Code usage statistics for 2025.
+
+## Quick Start
 
 ```bash
+# Run directly with npx
 npx claude-code-wrapped
 
-# Chinese / 中文
-npx claude-code-wrapped --lang zh
-
-# English
-npx claude-code-wrapped --lang en
+# Or install globally
+npm install -g claude-code-wrapped
+claude-code-wrapped
 ```
 
-## Features / 功能特性
+## Features
 
-- TUI output in terminal with beautiful ASCII art / 终端 TUI 输出，精美 ASCII 艺术字
-- HTML report with CRT/retro terminal aesthetic / HTML 报告，CRT 复古终端风格
-- PNG export capability / PNG 导出功能
-- Cross-platform support (macOS, Windows, Linux) / 跨平台支持
-- Bilingual support (English/Chinese) / 双语支持（中英文）
+- **Beautiful Dashboard** - Modern, clean HTML report with export to PNG
+- **Terminal TUI** - ASCII art visualization in your terminal
+- **Cost Estimation** - See how much your usage would cost at API prices
+- **Multi-language** - English and Chinese support
+- **Cross-platform** - Works on macOS, Windows, and Linux
 
-## Statistics Tracked / 统计维度
-
-- Total sessions and messages / 总会话数和消息数
-- Active days and usage streaks / 活跃天数和连续使用记录
-- Token consumption by model / 各模型 Token 消耗
-- Hourly activity distribution / 每小时活动分布
-- Project usage breakdown / 项目使用分析
-- Longest session records / 最长会话记录
-- Achievement badges / 成就徽章
-
-## Options / 选项
+## Usage
 
 ```bash
-npx claude-code-wrapped --help
+# Default (English, opens HTML report)
+claude-code-wrapped
 
-Options:
-  --no-tui           Skip TUI output in terminal
-  --no-html          Skip opening HTML report in browser
-  --export-png       Export report as PNG image
-  --json             Output stats as JSON
-  -l, --lang <lang>  Language: en (English) or zh (Chinese)
+# Chinese interface
+claude-code-wrapped --lang zh
+
+# Terminal only, no HTML
+claude-code-wrapped --no-html
+
+# Show help
+claude-code-wrapped --help
 ```
 
-## Requirements / 环境要求
+## What's Tracked
+
+| Metric | Description |
+|--------|-------------|
+| Sessions | Total coding sessions |
+| Messages | Messages exchanged with Claude |
+| Tokens | Total token consumption |
+| Models | Usage breakdown by model |
+| Projects | Your most active projects |
+| Time | Hourly and weekly patterns |
+| Cost | Estimated API cost |
+
+## Requirements
 
 - Node.js 18+
-- Claude Code installed and used at least once
+- Claude Code installed and used
 
-## License / 许可证
+## License
 
-MIT
+MIT © Dylan

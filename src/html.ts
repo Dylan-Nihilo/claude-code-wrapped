@@ -35,6 +35,7 @@ export async function generateHTML(stats: WrappedStats): Promise<string> {
 
 function buildHTML(stats: WrappedStats): string {
   const lang = getLanguage();
+  const i = t();
   const peakMessages = Math.max(...stats.dailyActivity.map((d) => d.messageCount));
   const tokensFormatted = formatNumber(stats.totalTokens);
   const longestDuration = stats.longestSession ? formatDuration(stats.longestSession.duration) : '0h';
@@ -154,50 +155,25 @@ function buildHTML(stats: WrappedStats): string {
             bottom: 0;
             z-index: 1;
             pointer-events: none;
+            overflow: hidden;
         }
-        .floating-shape {
+        .bg-animation::before {
+            content: '';
             position: absolute;
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s ease-in-out infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(217, 119, 87, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(91, 138, 114, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(196, 150, 58, 0.05) 0%, transparent 40%);
+            animation: gradientMove 30s ease-in-out infinite;
         }
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--coral), var(--amber));
-            top: 10%;
-            left: -5%;
-            animation-delay: 0s;
-        }
-        .shape-2 {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--sage), var(--purple));
-            top: 60%;
-            right: -3%;
-            animation-delay: -5s;
-        }
-        .shape-3 {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, var(--purple), var(--coral));
-            bottom: 20%;
-            left: 10%;
-            animation-delay: -10s;
-        }
-        .shape-4 {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, var(--amber), var(--sage));
-            top: 5%;
-            right: 15%;
-            animation-delay: -15s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            25% { transform: translate(30px, -30px) rotate(5deg) scale(1.05); }
-            50% { transform: translate(-20px, 20px) rotate(-5deg) scale(0.95); }
-            75% { transform: translate(20px, 10px) rotate(3deg) scale(1.02); }
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
         }
         .pixel-text {
             font-family: 'JetBrains Mono', monospace;
@@ -391,13 +367,7 @@ function buildHTML(stats: WrappedStats): string {
  ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝     ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝     ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═════╝</pre>
         </div>
         <nav class="landing-nav">
-            <a href="https://github.com/anthropics/claude-code" target="_blank" class="github-link">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                anthropics/claude-code
-            </a>
-            <a href="https://github.com/anthropics/claude-code" target="_blank" class="github-link">
+            <a href="https://github.com/Dylan-Nihilo/claude-code-wrapped" target="_blank" class="github-link">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
@@ -415,13 +385,8 @@ function buildHTML(stats: WrappedStats): string {
     </header>
 
     <div class="page-wrapper">
-    <!-- Floating background shapes -->
-    <div class="bg-animation">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
-        <div class="floating-shape shape-4"></div>
-    </div>
+    <!-- Background animation -->
+    <div class="bg-animation"></div>
     <div class="dashboard">
         <!-- Header Row -->
         <header class="flex justify-between items-start mb-4">
@@ -439,30 +404,30 @@ function buildHTML(stats: WrappedStats): string {
         </header>
 
         <!-- Overview Stats -->
-        <div class="tui-box" data-title="Overview">
+        <div class="tui-box" data-title="${i.overview}">
             <div class="grid grid-cols-6 gap-5">
                 <div class="stat-card">
-                    <div class="stat-label">Total Sessions</div>
+                    <div class="stat-label">${i.totalSessions}</div>
                     <div class="stat-value" style="color: var(--coral)">${stats.totalSessions.toLocaleString()}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Active Days</div>
+                    <div class="stat-label">${i.activeDays}</div>
                     <div class="stat-value" style="color: var(--sage)">${stats.activeDays}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Peak Messages</div>
+                    <div class="stat-label">${i.peakMessages}</div>
                     <div class="stat-value" style="color: var(--amber)">${peakMessages.toLocaleString()}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Tool Calls</div>
+                    <div class="stat-label">${i.toolCalls}</div>
                     <div class="stat-value" style="color: var(--purple)">${stats.totalToolCalls.toLocaleString()}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Total Tokens</div>
+                    <div class="stat-label">${i.totalTokens}</div>
                     <div class="stat-value" style="color: var(--coral)">${tokensFormatted}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Projects</div>
+                    <div class="stat-label">${i.projects}</div>
                     <div class="stat-value" style="color: var(--sage)">${stats.topProjects.length}</div>
                 </div>
             </div>
@@ -470,24 +435,24 @@ function buildHTML(stats: WrappedStats): string {
 
         <!-- Row 2: Impact + Activity -->
         <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-5 tui-box" data-title="Impact">
+            <div class="col-span-5 tui-box" data-title="${i.impact}">
                 <div class="corner-box h-full flex flex-col justify-center">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="tag tag-coral">${stats.userTitle}</span>
                         <span class="tag tag-sage">${stats.userLevel}</span>
                     </div>
                     <div class="text-7xl font-bold mb-2" style="color: var(--text-primary)">${stats.totalMessages.toLocaleString()}</div>
-                    <div class="text-base" style="color: var(--text-secondary)">Total messages exchanged with Claude</div>
+                    <div class="text-base" style="color: var(--text-secondary)">${i.messagesWithClaude}</div>
                 </div>
             </div>
 
-            <div class="col-span-4 tui-box" data-title="Hourly Activity">
+            <div class="col-span-4 tui-box" data-title="${i.hourlyActivity}">
                 <div class="space-y-2 h-full flex flex-col justify-center">
                     ${hourlyHTML}
                 </div>
             </div>
 
-            <div class="col-span-3 tui-box" data-title="Weekly Pattern">
+            <div class="col-span-3 tui-box" data-title="${i.weeklyPattern}">
                 <div class="flex items-end gap-3 h-full">
                     ${weeklyHTML}
                 </div>
@@ -496,13 +461,13 @@ function buildHTML(stats: WrappedStats): string {
 
         <!-- Row 3: Projects + Model + Tools -->
         <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-3 tui-box" data-title="Projects">
+            <div class="col-span-3 tui-box" data-title="${i.projects}">
                 <div class="space-y-2 h-full flex flex-col justify-center">
                     ${projectsHTML}
                 </div>
             </div>
 
-            <div class="col-span-3 tui-box" data-title="Model Usage">
+            <div class="col-span-3 tui-box" data-title="${i.modelUsage}">
                 <div class="space-y-3 h-full flex flex-col justify-center">
                     <div class="flex items-center justify-between text-base">
                         <span style="color: var(--text-muted)">Primary</span>
@@ -512,7 +477,7 @@ function buildHTML(stats: WrappedStats): string {
                 </div>
             </div>
 
-            <div class="col-span-2 tui-box flex flex-col" data-title="Top Tools">
+            <div class="col-span-2 tui-box flex flex-col" data-title="${i.topTools}">
                 <div class="space-y-3 flex-1 flex flex-col justify-center">
                     <div class="flex items-center justify-between">
                         <span class="text-sm">Read</span>
@@ -533,19 +498,19 @@ function buildHTML(stats: WrappedStats): string {
                 </div>
             </div>
 
-            <div class="col-span-2 tui-box flex flex-col" data-title="Cost Estimate">
+            <div class="col-span-2 tui-box flex flex-col" data-title="${i.costEstimate}">
                 <div class="space-y-3 flex-1 flex flex-col justify-center">
                     <div>
                         <span class="text-2xl font-bold" style="color: var(--coral)">$${formatCost(stats.estimatedCost)}</span>
                         <span class="text-xs ml-1" style="color: var(--text-muted)">USD</span>
                     </div>
                     <div class="pt-2 border-t text-xs" style="border-color: var(--border); color: var(--text-muted)">
-                        Based on API pricing
+                        ${i.basedOnApi}
                     </div>
                 </div>
             </div>
 
-            <div class="col-span-2 tui-box flex flex-col" data-title="Achievements">
+            <div class="col-span-2 tui-box flex flex-col" data-title="${i.achievements}">
                 <div class="space-y-3 flex-1 flex flex-col justify-center">
                     <div class="flex items-center gap-2">
                         <span style="color: var(--amber)">★</span>
@@ -572,7 +537,7 @@ function buildHTML(stats: WrappedStats): string {
             </div>
             <div class="flex items-center gap-2">
                 <span>claude code wrapped by</span>
-                <span style="color: var(--coral); font-weight: bold; letter-spacing: 2px;">▓█▀▄ █▄█ █   █▀█ █▄ █</span>
+                <span style="color: var(--coral); font-weight: 900; font-size: 14px; letter-spacing: 1px;">DYLAN</span>
             </div>
         </footer>
     </div>
@@ -583,8 +548,7 @@ function buildHTML(stats: WrappedStats): string {
         <div class="landing-footer-left">
             <span class="landing-footer-copy">Made with Claude Code</span>
             <div class="landing-footer-links">
-                <a href="https://github.com/anthropics/claude-code" target="_blank">GitHub</a>
-                <a href="https://anthropic.com" target="_blank">Anthropic</a>
+                <a href="https://github.com/Dylan-Nihilo/claude-code-wrapped" target="_blank">GitHub</a>
             </div>
         </div>
         <span class="landing-footer-copy">2025 Claude Code Wrapped</span>

@@ -78,6 +78,20 @@ export interface Translations {
   // Messages
   collaborationDensity: string;
   exceededProtocols: string;
+
+  // HTML labels
+  overview: string;
+  totalTokens: string;
+  projects: string;
+  impact: string;
+  messagesWithClaude: string;
+  hourlyActivity: string;
+  weeklyPattern: string;
+  modelUsage: string;
+  topTools: string;
+  costEstimate: string;
+  achievements: string;
+  basedOnApi: string;
 }
 
 const en: Translations = {
@@ -155,6 +169,20 @@ const en: Translations = {
   // Messages
   collaborationDensity: 'Your collaboration density exceeds standard protocols.',
   exceededProtocols: 'Total messages exchanged with core intelligence.',
+
+  // HTML labels
+  overview: 'Overview',
+  totalTokens: 'Total Tokens',
+  projects: 'Projects',
+  impact: 'Impact',
+  messagesWithClaude: 'Total messages exchanged with Claude',
+  hourlyActivity: 'Hourly Activity',
+  weeklyPattern: 'Weekly Pattern',
+  modelUsage: 'Model Usage',
+  topTools: 'Top Tools',
+  costEstimate: 'Cost Estimate',
+  achievements: 'Achievements',
+  basedOnApi: 'Based on API pricing',
 };
 
 const zh: Translations = {
@@ -232,6 +260,20 @@ const zh: Translations = {
   // Messages
   collaborationDensity: '你的协作强度超越了标准协议。',
   exceededProtocols: '与核心智能交换的消息总数。',
+
+  // HTML labels
+  overview: '概览',
+  totalTokens: '总Token',
+  projects: '项目数',
+  impact: '影响力',
+  messagesWithClaude: '与 Claude 交换的消息总数',
+  hourlyActivity: '时间分布',
+  weeklyPattern: '周活动',
+  modelUsage: '模型使用',
+  topTools: '常用工具',
+  costEstimate: '成本估算',
+  achievements: '成就',
+  basedOnApi: '基于API定价',
 };
 
 const translations: Record<Language, Translations> = { en, zh };
