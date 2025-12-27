@@ -1,27 +1,33 @@
-# Claude Code Wrapped 2025
-
 ```
 ╔═╗╦  ╔═╗╦ ╦╔╦╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗  ╦ ╦╦═╗╔═╗╔═╗╔═╗╔═╗╔╦╗
 ║  ║  ╠═╣║ ║ ║║║╣   ║  ║ ║ ║║║╣   ║║║╠╦╝╠═╣╠═╝╠═╝║╣  ║║
 ╚═╝╩═╝╩ ╩╚═╝═╩╝╚═╝  ╚═╝╚═╝═╩╝╚═╝  ╚╩╝╩╚═╩ ╩╩  ╩  ╚═╝═╩╝
 ```
 
-> Your year with Claude Code, beautifully visualized.
+<p align="center">
+  <i>Your year with Claude Code, beautifully visualized.</i>
+</p>
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  <img src="https://img.shields.io/badge/node-%3E%3D18-green.svg" alt="Node">
+</p>
 
-## Preview
+---
 
-Generate a beautiful dashboard showing your Claude Code usage statistics for 2025.
+## ┌─ Preview ─┐
 
-### Dashboard
-![Dashboard](assets/dashboard.png)
+> Generate a beautiful dashboard showing your Claude Code usage statistics for 2025.
 
-### CLI
-![CLI](assets/cli.png)
+**Dashboard**
 
-## Quick Start
+![Dashboard](https://raw.githubusercontent.com/Dylan-Nihilo/claude-code-wrapped/main/assets/dashboard.png)
+
+**CLI**
+
+![CLI](https://raw.githubusercontent.com/Dylan-Nihilo/claude-code-wrapped/main/assets/cli.png)
+
+## ┌─ Quick Start ─┐
 
 ```bash
 # Run directly with npx
@@ -32,15 +38,19 @@ npm install -g claude-code-wrapped
 claude-code-wrapped
 ```
 
-## Features
+## ┌─ Features ─┐
 
-- **Beautiful Dashboard** - Modern, clean HTML report with export to PNG
-- **Terminal TUI** - ASCII art visualization in your terminal
-- **Cost Estimation** - See how much your usage would cost at API prices
-- **Multi-language** - English and Chinese support
-- **Cross-platform** - Works on macOS, Windows, and Linux
+```
+┌────────────────────────────────────────────────────────────┐
+│  ★ Beautiful Dashboard    Modern HTML report + PNG export  │
+│  ★ Terminal TUI           ASCII art in your terminal       │
+│  ★ Cost Estimation        API pricing calculation          │
+│  ★ Multi-language         English & Chinese support        │
+│  ★ Cross-platform         macOS / Windows / Linux          │
+└────────────────────────────────────────────────────────────┘
+```
 
-## Usage
+## ┌─ Usage ─┐
 
 ```bash
 # Default (English, opens HTML report)
@@ -56,23 +66,29 @@ claude-code-wrapped --no-html
 claude-code-wrapped --help
 ```
 
-## What's Tracked
+## ┌─ What's Tracked ─┐
 
-| Metric | Description |
-|--------|-------------|
-| Sessions | Total coding sessions |
-| Messages | Messages exchanged with Claude |
-| Tokens | Total token consumption |
-| Models | Usage breakdown by model |
-| Projects | Your most active projects |
-| Time | Hourly and weekly patterns |
-| Cost | Estimated API cost |
+```
+┌──────────────┬─────────────────────────────────┐
+│ Metric       │ Description                     │
+├──────────────┼─────────────────────────────────┤
+│ Sessions     │ Total coding sessions           │
+│ Messages     │ Messages exchanged with Claude  │
+│ Tokens       │ Total token consumption         │
+│ Models       │ Usage breakdown by model        │
+│ Projects     │ Your most active projects       │
+│ Time         │ Hourly and weekly patterns      │
+│ Cost         │ Estimated API cost              │
+└──────────────┴─────────────────────────────────┘
+```
 
-## Requirements
+## ┌─ Requirements ─┐
 
 - Node.js 18+
 - Claude Code installed and used
 
-## License
+---
 
-MIT © Dylan
+<p align="center">
+  <sub>MIT © Dylan</sub>
+</p>
