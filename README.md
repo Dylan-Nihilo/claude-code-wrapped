@@ -15,6 +15,12 @@
 
 Generate a beautiful dashboard showing your Claude Code usage statistics for 2025.
 
+### Dashboard
+![Dashboard](assets/dashboard.png)
+
+### CLI
+![CLI](assets/cli.png)
+
 ## Quick Start
 
 ```bash
