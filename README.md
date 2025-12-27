@@ -31,10 +31,10 @@
 
 ```bash
 # Run directly with npx
-npx claude-code-wrapped
+npx @dylan_jser/claude-code-wrapped
 
 # Or install globally
-npm install -g claude-code-wrapped
+npm install -g @dylan_jser/claude-code-wrapped
 claude-code-wrapped
 ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "claude-code-wrapped",
+  "name": "@dylan_jser/claude-code-wrapped",
   "version": "1.0.0",
   "description": "Generate your Claude Code year-in-review wrapped report",
   "main": "dist/index.js",
@@ -19,9 +19,18 @@
     "wrapped",
     "statistics",
     "cli",
-    "tui"
+    "tui",
+    "2025"
   ],
-  "author": "",
+  "author": "Dylan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dylan-Nihilo/claude-code-wrapped.git"
+  },
+  "homepage": "https://github.com/Dylan-Nihilo/claude-code-wrapped#readme",
+  "bugs": {
+    "url": "https://github.com/Dylan-Nihilo/claude-code-wrapped/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
